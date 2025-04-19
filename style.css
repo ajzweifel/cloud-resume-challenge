@@ -1,0 +1,350 @@
+/* General Reset & Layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    background-color: #fff;
+    color: var(--dark-base);
+    line-height: 1.6;
+}
+
+/* Color Palette */
+:root {
+    --dark-base: #070707;
+    --accent: #D80032;
+    --primary: #3454D1;
+    --secondary: #34D1BF;
+    --soft-accent: #F9DB6D;
+    --light-gray: #f8f9fa;
+    --border-color: #ddd;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 220px;
+    min-height: 100vh;
+    background: var(--dark-base);
+    padding: 2rem 1rem;
+    position: fixed;
+    color: white;
+}
+
+/* TOP SECTION : name + nav links*/
+.sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar nav a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.sidebar nav a:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.sidebar nav a:hover::after {
+    width: 100%;
+}
+
+/* BOTTOM SECTION: profile, status, social */
+.sidebar-extra {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 0.5rem;
+}
+
+.tagline {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.sidebar-social a {
+    display: inline-block;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 0 0.25rem;
+}
+
+.sidebar-social a:hover {
+    color: var(--red);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    padding: 2rem;
+    flex: 1;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Headings */
+h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-left: 6px solid var(--primary);
+    padding-left: 1rem;
+}
+
+/* Skills */
+.skills-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    columns: 2;
+    color: #444;
+}
+
+/* Experiences */
+.experience {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.experience:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--secondary);
+}
+
+.experience h3 {
+    margin-bottom: 0.4rem;
+    color: var(--dark-base);
+}
+
+.experience-date {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.experience ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: #444444;
+}
+
+.experience-date::before {
+    content: "• ";
+    color: var(--soft-accent);
+}
+
+/* Projects */
+.project {
+    margin-bottom: 2rem;
+}
+
+.project h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #888;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .skills-list {
+        columns: 1;
+    }
+}
+
+
+h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-left: 6px solid var(--primary);
+    padding-left: 1rem;
+}
+
+.sidebar nav a {
+    padding: 0.3rem 0;
+    display: inline-block;
+    position: relative;
+}
+
+.sidebar nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.sidebar nav a:hover::after {
+    width: 100%
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.reveal.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.reveal.delay-3 {
+    transition-delay: 0.6s;
+}
+
+/* SIDEBAR PROFILE */
+.sidebar-profile {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.sidebar-status {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.tetris-box {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.block {
+    background-color: var(--accent);
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    width: max-content;
+}
+
+/* Top block aligned left */
+.block-top {
+    margin-left: 0;
+}
+
+/* Bottom block offset to the right */
+.block-bottom {
+    margin-top: -0.5rem;
+    /* overlap slightly */
+    margin-left: 3rem;
+    /* right offset for Z-shape */
+}
+
+.weather-widget {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.weather-widget img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
