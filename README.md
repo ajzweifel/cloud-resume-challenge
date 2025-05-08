@@ -1,2 +1,2 @@
 # ajzweifel.com
-Personal website
+Personal website hosted through AWS
